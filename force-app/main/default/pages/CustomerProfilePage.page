@@ -1,0 +1,21 @@
+<apex:page controller="CustomerProfilePageController" standardStylesheets="false" lightningStylesheets="true" showHeader="false" applyBodyTag="false" sidebar="false">
+    <apex:slds />
+    <apex:form >
+        <div class="slds-text-title slds-text-align_center">Welcome to ABC Fashion Co.</div>
+        
+        <apex:pageBlock title="My Profile" mode="view" >
+            <apex:pageBlockSection title="My Content Section" columns="2">
+                <apex:outputField value="{!acc.Name}"/>
+                <apex:outputField value="{!acc.PersonEmail}"/>
+                <apex:inputField value="{!acc.phone}" />
+                <apex:inputField value="{!acc.Date_of_Birth__c}"/>
+                <apex:inputField value="{!acc.T_Shirt_Size__c}"/>
+                <apex:inputField value="{!acc.Shoe_Size__c}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton action="{!save}" value="Save"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+        <apex:pagemessages />
+    </apex:form>
+</apex:page>
