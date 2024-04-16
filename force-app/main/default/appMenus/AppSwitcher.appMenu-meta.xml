@@ -92,4 +92,8 @@
         <name>standard__LightningBolt</name>
         <type>CustomApplication</type>
     </appMenuItems>
+    <appMenuItems>
+        <name>ABC_Fashion_Co</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
 </AppMenu>
