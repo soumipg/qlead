@@ -1,14 +1,12 @@
-<apex:page controller="CustomerProfilePageController" standardStylesheets="false" lightningStylesheets="true" showHeader="false" applyBodyTag="false" sidebar="false">
+<apex:page controller="CustomerProfilePageController" standardStylesheets="false" lightningStylesheets="true" showHeader="false" applyBodyTag="false" sidebar="false" docType="html-5.0">
     <apex:slds />
-    <apex:form >
-        <div class="slds-text-title slds-text-align_center">Welcome to ABC Fashion Co.</div>
-        
-        <apex:pageBlock title="My Profile" mode="view" >
-            <apex:pageBlockSection title="My Content Section" columns="2">
-                <apex:outputField value="{!acc.Name}"/>
+    <apex:form >        
+        <apex:pageBlock title="Welcome to ABC Fashion Co." mode="view" >
+            <apex:pageBlockSection title="My Profile" columns="2">
+                <apex:outputField value="{!acc.Name}" label="Name"/>
                 <apex:outputField value="{!acc.PersonEmail}"/>
                 <apex:inputField value="{!acc.phone}" />
-                <apex:inputField value="{!acc.Date_of_Birth__c}"/>
+                <apex:inputField type="date" value="{!acc.Date_of_Birth__c}"/>
                 <apex:inputField value="{!acc.T_Shirt_Size__c}"/>
                 <apex:inputField value="{!acc.Shoe_Size__c}"/>
             </apex:pageBlockSection>

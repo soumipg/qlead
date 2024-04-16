@@ -15,10 +15,17 @@ public without sharing class CustomerProfilePageController {
             return null;
         }
         
-        acc.Profile_Completed__c = true;
-        update acc; 
-        ApexPages.Message message = new ApexPages.Message(ApexPages.Severity.confirm, 'Your details are saved.');
-        ApexPages.addMessage(message);
-        return null;
+        try {
+            acc.Profile_Completed__c = true;
+            acc.Loyalty_Customer_ID__c = WebhookHandler.callCommutatusWebhook(acc);
+            update acc;
+            ApexPages.Message message = new ApexPages.Message(ApexPages.Severity.confirm, 'Your details are saved.');
+            ApexPages.addMessage(message);
+        	return null;
+        } catch (Exception e) {
+            ApexPages.Message message = new ApexPages.Message(ApexPages.Severity.ERROR, e.getMessage());
+            ApexPages.addMessage(message);
+            return null;
+        }
     }
 }
