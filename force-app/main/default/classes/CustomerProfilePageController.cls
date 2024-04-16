@@ -3,7 +3,7 @@ public without sharing class CustomerProfilePageController {
     public Account acc{get;set;}
     
     public CustomerProfilePageController() {
-        this.accountID = ApexPages.currentPage().getParameters().get('id');
+        this.accountID = AccountTriggerHandler.decryptId(ApexPages.currentPage().getParameters().get('key'));
 		acc = [Select Id, Name, PersonEmail, T_Shirt_Size__c, Shoe_Size__c,Profile_Completed__c,Loyalty_Customer_ID__c, Phone, Date_of_Birth__c , iSPersonaccount
                        from Account where id =: accountId];  
     }
